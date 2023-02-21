@@ -30,7 +30,7 @@ let secondDayWeatherIcon = document.getElementById("secondDay-weather-icon");
 
 let weatherGreetingMsg = {
   tooCold: [
-    "में तो जम गया बेकार है भैया",
+    "Too cool to be here today",
     "Weather is As cool as our Captain Cool",
     "It's too cold outside,Stay inside",
     "In this terrible cold,Hope you have your warm clothes",
@@ -40,30 +40,28 @@ let weatherGreetingMsg = {
     "Little bit of cold here",
     "Mild Coold, Do exercise to keep yourself Active",
     "Although Not too much cold,But avoid staying outside",
-    "एक RedBull पीओ और शुरू हो जाओ",
+    "Mild cold, stay away from ice-cream",
   ],
   mildHot: [
     "It's hot outside, be careful with sun",
-    "ગરમી માપ ની સ એટલે વધાર કલર કરે નહિ",
-    "આ તો કોયય ગરમી ના કહેવાય",
+    "Mild hot outside, do your movements infront of AC",
+    "weather is little bit hot than usual",
   ],
   tooHot: [
     "It's too hot outside,Stay inside",
-    "वैसे तो में बहुत सख्त लौंडा हु पर यहाँ मैं पिघल गया",
+    "Weather is terribly hot",
     "Unbearable Hotness outside, Turn your AC/Fan on",
-    "कृपया एक्टिवा/बाइक पर बैठने से पहले सोच ले",
-    "इतनी गर्मी में बाहर निकल गए??...नहीं निकलना था",
+    "temperature is too high, Do your movements infront of Fan",
+    "Atmosphere is too Hot to be outside",
   ],
   average: [
     "Good to Go chief!",
-    "अभी मजा आएगा ना भिड़ु",
+    "Temperature is good enough to do your work",
     "The Perfect time to do your work",
-    "यही तो चाहिए था आपको",
-    "ओह्ह यार यह कितना awesome मौसम है",
-    "सुकून का नाम सुना है...आय हाय..",
+    "Atmosphere is as per as your expectations",
+    "Such a lovely weather",
   ],
 };
-
 //////////////////////////////Utility Function for showing Random Weather messages to User////////////////////////////
 let randomNumber = (arr) => Math.floor(Math.random() * arr.length);
 
