@@ -1,113 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="This is the Best weather website you'll ever see in your entire life"
+    />
+    <title>KPWeather</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="shortcut icon"
+      href="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png"
+      sizes="64x64"
+      type="image/x-icon"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="This is the Best weather website you'll ever see in your entire life">
-  <title>KPWeather</title>
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="shortcut icon" href="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png" sizes="64x64" type="image/x-icon">
-</head>
-
-<body>
-  <header>
-    <nav class="navigation">
-      <div>
-        <div class="weather-head">
-          <img class="weather-logo" src="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png" alt="">
-          <span>KPWeather</span>
+  <body>
+    <header>
+      <nav class="navigation">
+        <div>
+          <div class="weather-head">
+            <img
+              class="weather-logo"
+              src="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png"
+              alt=""
+            />
+            <span>KPWeather</span>
+          </div>
+          <div class="container">
+            <label for="searchedCity">Enter City</label>
+            <input
+              type="text"
+              placeholder="Enter Your City"
+              name="city"
+              id="searchedCity"
+            />
+            <button type="submit" id="submit-city">GO</button>
+          </div>
         </div>
-        <div class="container">
-          <label for="searchedCity">Enter City</label>
-          <input type="text" placeholder="Enter Your City" name="city" id="searchedCity" />
-          <button type="submit" id="submit-city">GO</button>
+      </nav>
+    </header>
+    <main>
+      <div class="weather-card">
+        <div class="location">
+          <span
+            >Right Now in <span id="city-name"></span><span>,</span>
+            <span id="weather-msg"></span>
+          </span>
+        </div>
+        <div class="weather-details">
+          <div id="weather-animated-img">
+            <img
+              class="weather-animated-img"
+              id="animation"
+              src="./animated/day.svg"
+              alt="Sunny"
+            />
+          </div>
+          <div class="temperature-container">
+            <div id="current-temperature">T</div>
+            <div class="max-min_temp">
+              <span id="min-temp">min</span>
+              <span class="max-min_divider">/</span>
+              <span id="max-temp">max</span>
+            </div>
+          </div>
+          <div class="other-weather-details">
+            <div class="wind-details other-weather-container">
+              <img class="weather-emoji" src="./img/wind.png" alt="wind" />
+              <span id="wind-speed" class="other-weather-number">X</span
+              ><span>km/h</span>
+            </div>
+            <div class="rain-details other-weather-container">
+              <img class="weather-emoji" src="./img/umbrella.png" alt="Rain" />
+              <span id="cloud_pct" class="other-weather-number">X</span
+              ><span>%</span>
+            </div>
+            <div class="humidity-details other-weather-container">
+              <img
+                class="weather-emoji"
+                src="./img/water-drop.png"
+                alt="Humidity"
+              />
+              <span id="humidity" class="other-weather-number">X</span
+              ><span>%</span>
+            </div>
+          </div>
+        </div>
+        <div class="future-weather-forecast">
+          <div class="tomorrow weather-day">
+            <div class="weather-icon">
+              <img src="./animated/rainy-1.svg" id="tom-weather-icon" alt="" />
+            </div>
+            <div class="average-temp">
+              <span id="tom_avgTemp">T</span>
+            </div>
+            <div class="max-min_temp">
+              <span id="tom_min-temp">min</span>
+              <span class="max-min_divider">/</span>
+              <span id="tom_max-temp">max</span>
+            </div>
+            <div class="day-name">Tom</div>
+          </div>
+          <div class="next-day weather-day">
+            <div class="weather-icon">
+              <img
+                src="./animated/rainy-1.svg"
+                id="nextDay-weather-icon"
+                alt=""
+              />
+            </div>
+            <div class="average-temp">
+              <span id="nextDayAvgTemp">T</span>
+            </div>
+            <div class="max-min_temp">
+              <span id="nextDay_min-temp">min</span>
+              <span class="max-min_divider">/</span>
+              <span id="nextDay_max-temp">max</span>
+            </div>
+            <div class="day-name" id="nextDay">Mon</div>
+          </div>
+          <div class="next-day weather-day">
+            <div class="weather-icon">
+              <img
+                src="./animated/cloudy-day-2.svg"
+                id="secondDay-weather-icon"
+                alt=""
+              />
+            </div>
+            <div class="average-temp">
+              <span id="secondDayAvgTemp">T</span>
+            </div>
+            <div class="max-min_temp">
+              <span id="secondDay_min-temp">min</span>
+              <span class="max-min_divider">/</span>
+              <span id="secondDay_max-temp">max</span>
+            </div>
+            <div class="day-name" id="secondNextDay">Wed</div>
+          </div>
         </div>
       </div>
-    </nav>
-  </header>
-  <main>
-    <div class="weather-card">
-      <div class="location">
-        <span>Right Now in <span id="city-name"></span><span>,</span>
-          <span id="weather-msg"></span>
-        </span>
-      </div>
-      <div class="weather-details">
-        <div id="weather-animated-img">
-          <img class="weather-animated-img" id="animation" src="./animated/day.svg" alt="Sunny" />
-        </div>
-        <div class="temperature-container">
-          <div id="current-temperature">T</div>
-          <div class="max-min_temp">
-            <span id="min-temp">min</span>
-            <span class="max-min_divider">/</span>
-            <span id="max-temp">max</span>
-          </div>
-        </div>
-        <div class="other-weather-details">
-          <div class="wind-details other-weather-container">
-            <img class="weather-emoji" src="./img/wind.png" alt="wind" />
-            <span id="wind-speed" class="other-weather-number">X</span><span>km/h</span>
-          </div>
-          <div class="rain-details other-weather-container">
-            <img class="weather-emoji" src="./img/umbrella.png" alt="Rain" />
-            <span id="cloud_pct" class="other-weather-number">X</span><span>%</span>
-          </div>
-          <div class="humidity-details other-weather-container">
-            <img class="weather-emoji" src="./img/water-drop.png" alt="Humidity" />
-            <span id="humidity" class="other-weather-number">X</span><span>%</span>
-          </div>
-        </div>
-      </div>
-      <div class="future-weather-forecast">
-        <div class="tomorrow weather-day">
-          <div class="weather-icon">
-            <img src="./animated/rainy-1.svg" id="tom-weather-icon" alt="" />
-          </div>
-          <div class="average-temp">
-            <span id="tom_avgTemp">T</span>
-          </div>
-          <div class="max-min_temp">
-            <span id="tom_min-temp">min</span>
-            <span class="max-min_divider">/</span>
-            <span id="tom_max-temp">max</span>
-          </div>
-          <div class="day-name">Tom</div>
-        </div>
-        <div class="next-day weather-day">
-          <div class="weather-icon">
-            <img src="./animated/rainy-1.svg" id="nextDay-weather-icon" alt="" />
-          </div>
-          <div class="average-temp">
-            <span id="nextDayAvgTemp">T</span>
-          </div>
-          <div class="max-min_temp">
-            <span id="nextDay_min-temp">min</span>
-            <span class="max-min_divider">/</span>
-            <span id="nextDay_max-temp">max</span>
-          </div>
-          <div class="day-name" id="nextDay">Mon</div>
-        </div>
-        <div class="next-day weather-day">
-          <div class="weather-icon">
-            <img src="./animated/cloudy-day-2.svg" id="secondDay-weather-icon" alt="" />
-          </div>
-          <div class="average-temp">
-            <span id="secondDayAvgTemp">T</span>
-          </div>
-          <div class="max-min_temp">
-            <span id="secondDay_min-temp">min</span>
-            <span class="max-min_divider">/</span>
-            <span id="secondDay_max-temp">max</span>
-          </div>
-          <div class="day-name" id="secondNextDay">Wed</div>
-        </div>
-      </div>
-    </div>
-  </main>
-  <script src="./script.js"></script>
-</body>
-
+    </main>
+    <script src="./script.js"></script>
+  </body>
 </html>
