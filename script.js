@@ -46,6 +46,7 @@ let weatherGreetingMsg = {
     "It's hot outside, be careful with sun",
     "Mild hot outside, do your movements infront of AC",
     "weather is little bit hot than usual",
+    "Temperature is pretty hot but not too worry about"
   ],
   tooHot: [
     "It's too hot outside,Stay inside",
@@ -248,7 +249,7 @@ showSecondDay.textContent = dayDisplay(secondDay);
 
 function showWeather() {
   fetch(
-    `https://api.weatherapi.com/v1/forecast.json?key=dec46685826a44068db122229231002&q=${searchBox.value}&days=4&aqi=no&alerts=no`
+    `https://api.weatherapi.com/v1/forecast.json?key=bf740acd7cb541848b243040232502&q=${searchBox.value}&days=4&aqi=no&alerts=no`
   )
     .then((response) => response.json())
     .then((data) => {
