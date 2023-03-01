@@ -46,7 +46,7 @@ let weatherGreetingMsg = {
     "It's hot outside, be careful with sun",
     "Mild hot outside, do your movements infront of AC",
     "weather is little bit hot than usual",
-    "Temperature is pretty hot but not too worry about"
+    "Temperature is pretty hot but not too worry about",
   ],
   tooHot: [
     "It's too hot outside,Stay inside",
@@ -124,7 +124,7 @@ function changeBg(is_day, cloud, rain, snow) {
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundRepeat = "no-repeat";
     weatherAnimatedImg.src = "./animated/snowy-1.svg";
-  } else if(!is_day && snow){
+  } else if (!is_day && snow) {
     document.body.style.background = " url(./img/snow.jpg)";
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundRepeat = "no-repeat";
@@ -202,7 +202,7 @@ function changeAnimation(rain, snow, weatherIcon) {
     weatherIcon.src = "./animated/snowy-1.svg";
   } else if (rain) {
     weatherIcon.src = "./animated/rainy-1.svg";
-  }else {
+  } else {
     weatherIcon.src = "./animated/day.svg";
   }
 }
@@ -253,66 +253,70 @@ function showWeather() {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-      /////////////////////// Assignment of Values in UI //////////////////////
-      currTemperature.textContent = Number(Math.round(data.current.temp_c));
-      maxTemp.innerHTML = `${Math.round(
-        data.forecast.forecastday[0].day.maxtemp_c
-      )}&deg;`;
-      minTemp.innerHTML = `${Math.round(
-        data.forecast.forecastday[0].day.mintemp_c
-      )}&deg;`;
-      windSpeed.textContent = Math.round(data.current.wind_kph);
-      cloudPct.textContent = Math.round(
-        data.forecast.forecastday[0].day.daily_chance_of_rain
-      );
-      humidity.textContent = Math.round(data.current.humidity);
-      tomorrowAvgTemp.innerHTML = `${Math.round(
-        data.forecast.forecastday[1].day.avgtemp_c
-      )}&deg;`;
-      nextDayAvgTemp.innerHTML = `${Math.round(
-        data.forecast.forecastday[2].day.avgtemp_c
-      )}&deg;`;
-      secondDayAvgTemp.innerHTML = `${Math.round(
-        data.forecast.forecastday[3].day.avgtemp_c
-      )}&deg;`;
-      tom_maxTemp.innerHTML = `${Math.round(
-        data.forecast.forecastday[1].day.maxtemp_c
-      )}&deg;`;
-      tom_minTemp.innerHTML = `${Math.round(
-        data.forecast.forecastday[1].day.mintemp_c
-      )}&deg;`;
-      nextDay_maxTemp.innerHTML = `${Math.round(
-        data.forecast.forecastday[2].day.maxtemp_c
-      )}&deg;`;
-      nextDay_minTemp.innerHTML = `${Math.round(
-        data.forecast.forecastday[2].day.mintemp_c
-      )}&deg;`;
-      secondDay_maxTemp.innerHTML = `${Math.round(
-        data.forecast.forecastday[3].day.maxtemp_c
-      )}&deg;`;
-      secondDay_minTemp.innerHTML = `${Math.round(
-        data.forecast.forecastday[3].day.mintemp_c
-      )}&deg;`;
-      showWeatherGreetingMsg(currTemperature.textContent);
-      let is_day = data.current.is_day;
-      let cloud = data.current.cloud;
-      let rain = data.forecast.forecastday[0].day.daily_will_it_rain;
-      let snow = data.forecast.forecastday[0].day.daily_will_it_snow;
-      let rainTom = data.forecast.forecastday[1].day.daily_will_it_rain;
-      let snowTom = data.forecast.forecastday[1].day.daily_will_it_snow;
-      let rainNext = data.forecast.forecastday[2].day.daily_will_it_rain;
-      let snowNext = data.forecast.forecastday[2].day.daily_will_it_snow;
-      let rainSecond = data.forecast.forecastday[3].day.daily_will_it_rain;
-      let snowSecond = data.forecast.forecastday[3].day.daily_will_it_snow;
-      let x = window.matchMedia("(max-width: 430px)");
-      changeBgForMobile(x, is_day, cloud, rain, snow);
-      x.addListener(changeBgForMobile);
-      changeAnimation(rainTom, snowTom, tomWeatherIcon);
-      changeAnimation(rainNext, snowNext, nextDayWeatherIcon);
-      changeAnimation(rainSecond, snowSecond, secondDayWeatherIcon);
-    })
-    
+      if (data.error) {
+        let error = data.error.message;
+        alert(error);
+      } else {
+        console.log(data);
+        /////////////////////// Assignment of Values in UI //////////////////////
+        currTemperature.textContent = Number(Math.round(data.current.temp_c));
+        maxTemp.innerHTML = `${Math.round(
+          data.forecast.forecastday[0].day.maxtemp_c
+        )}&deg;`;
+        minTemp.innerHTML = `${Math.round(
+          data.forecast.forecastday[0].day.mintemp_c
+        )}&deg;`;
+        windSpeed.textContent = Math.round(data.current.wind_kph);
+        cloudPct.textContent = Math.round(
+          data.forecast.forecastday[0].day.daily_chance_of_rain
+        );
+        humidity.textContent = Math.round(data.current.humidity);
+        tomorrowAvgTemp.innerHTML = `${Math.round(
+          data.forecast.forecastday[1].day.avgtemp_c
+        )}&deg;`;
+        nextDayAvgTemp.innerHTML = `${Math.round(
+          data.forecast.forecastday[2].day.avgtemp_c
+        )}&deg;`;
+        secondDayAvgTemp.innerHTML = `${Math.round(
+          data.forecast.forecastday[3].day.avgtemp_c
+        )}&deg;`;
+        tom_maxTemp.innerHTML = `${Math.round(
+          data.forecast.forecastday[1].day.maxtemp_c
+        )}&deg;`;
+        tom_minTemp.innerHTML = `${Math.round(
+          data.forecast.forecastday[1].day.mintemp_c
+        )}&deg;`;
+        nextDay_maxTemp.innerHTML = `${Math.round(
+          data.forecast.forecastday[2].day.maxtemp_c
+        )}&deg;`;
+        nextDay_minTemp.innerHTML = `${Math.round(
+          data.forecast.forecastday[2].day.mintemp_c
+        )}&deg;`;
+        secondDay_maxTemp.innerHTML = `${Math.round(
+          data.forecast.forecastday[3].day.maxtemp_c
+        )}&deg;`;
+        secondDay_minTemp.innerHTML = `${Math.round(
+          data.forecast.forecastday[3].day.mintemp_c
+        )}&deg;`;
+        showWeatherGreetingMsg(currTemperature.textContent);
+        let is_day = data.current.is_day;
+        let cloud = data.current.cloud;
+        let rain = data.forecast.forecastday[0].day.daily_will_it_rain;
+        let snow = data.forecast.forecastday[0].day.daily_will_it_snow;
+        let rainTom = data.forecast.forecastday[1].day.daily_will_it_rain;
+        let snowTom = data.forecast.forecastday[1].day.daily_will_it_snow;
+        let rainNext = data.forecast.forecastday[2].day.daily_will_it_rain;
+        let snowNext = data.forecast.forecastday[2].day.daily_will_it_snow;
+        let rainSecond = data.forecast.forecastday[3].day.daily_will_it_rain;
+        let snowSecond = data.forecast.forecastday[3].day.daily_will_it_snow;
+        let x = window.matchMedia("(max-width: 430px)");
+        changeBgForMobile(x, is_day, cloud, rain, snow);
+        x.addListener(changeBgForMobile);
+        changeAnimation(rainTom, snowTom, tomWeatherIcon);
+        changeAnimation(rainNext, snowNext, nextDayWeatherIcon);
+        changeAnimation(rainSecond, snowSecond, secondDayWeatherIcon);
+      }
+    });
 }
 
 let weather = {
